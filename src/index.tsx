@@ -8,7 +8,7 @@ import { store } from './domain';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App id="foo" />
+    <App />
   </Provider>,
   document.getElementById('root') as HTMLElement
 );

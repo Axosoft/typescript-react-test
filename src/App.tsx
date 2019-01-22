@@ -2,14 +2,26 @@ import * as React from 'react';
 import './App.css';
 
 import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { RootState } from './domain';
+import { getUser } from './domain/User/UserActions';
 
 interface AppProps {
-  id: string
+  user: string,
+  login: typeof getUser
 }
 
 interface AppState {
   thing: string
 }
+
+const mapStateToProps = (state: RootState) => ({
+  user: state.User.user
+})
+
+const mapDispatchToProps = (dispatch: any) => ({
+  login: () => dispatch(getUser())
+})
 
 class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
@@ -18,6 +30,9 @@ class App extends React.Component<AppProps, AppState> {
       thing: 'asdf'
     }
   }
+  componentDidMount() {
+    this.props.login();
+  }
   public render() {
     return (
       <div className="App">
@@ -25,12 +40,10 @@ class App extends React.Component<AppProps, AppState> {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <p>usaer: {this.props.user}</p>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

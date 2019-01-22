@@ -1,9 +1,20 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import { UserReducer, UserState } from './User/UserReducer';
 
-export interface StoreState {
+export interface RootState {
   User: UserState
 }
-export const store = createStore<StoreState, any, any, any>(combineReducers({
+
+const rootReducer = combineReducers<RootState>({
   User: UserReducer
-}));
+});
+
+export const store = createStore(
+  rootReducer,
+  composeWithDevTools(
+    applyMiddleware(ReduxThunk)
+  )
+);

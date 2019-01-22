@@ -5,10 +5,12 @@ import {
   USER_RETREIVED_FROM_API,
 } from './UserActions';
 
-export interface UserState {
-  user: string,
-  userIsNew: boolean
+const UserDefaultState = {
+  user: '',
+  userIsNew: false
 };
+
+export type UserState = typeof UserDefaultState;
 
 export const UserReducer = (state: UserState, action: USER_ACTION): UserState => {
   switch (action.type) {
@@ -17,5 +19,7 @@ export const UserReducer = (state: UserState, action: USER_ACTION): UserState =>
       return { ...state, user: action.user, userIsNew: false }
     case NEW_USER_CREATED:
       return { ...state, user: action.user, userIsNew: true }
+    default:
+      return { ...state, ...UserDefaultState }
   }
 }

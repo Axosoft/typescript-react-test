@@ -5,7 +5,9 @@ export const NEW_USER_CREATED = 'NEW_USER_CREATED';
 
 export const getUser = () => (dispatch: Dispatch) => {
   // pretend this is an API call
+  console.log('get user initial')
   setTimeout(() => {
+    console.log('get user!!!')
     dispatch(setUser('hello'));
   }, 200);
 };
@@ -31,6 +33,5 @@ export const setNewUser = (name: string, age: number) => ({
 
 
 export type USER_ACTION =
-  // ReturnType<typeof setUser> |
   ReturnType<typeof setUser> |
   ReturnType<typeof setNewUser>;
