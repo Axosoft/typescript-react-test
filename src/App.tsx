@@ -3,7 +3,7 @@ import './App.css';
 
 import logo from './logo.svg';
 import { connect } from 'react-redux';
-import { RootState } from './domain';
+import { RootState, ThunkDispatch } from './domain/index';
 import { getUser } from './domain/User/UserActions';
 
 interface AppProps {
@@ -19,7 +19,7 @@ const mapStateToProps = (state: RootState) => ({
   user: state.User.user
 })
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
   login: () => dispatch(getUser())
 })
 

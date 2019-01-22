@@ -1,9 +1,11 @@
 import { Dispatch } from 'redux';
 
+import { ThunkResult } from '../index';
+
 export const USER_RETREIVED_FROM_API = 'USER_RETREIVED_FROM_API';
 export const NEW_USER_CREATED = 'NEW_USER_CREATED';
 
-export const getUser = () => (dispatch: Dispatch) => {
+export const getUser = (): ThunkResult<void> => (dispatch) => {
   // pretend this is an API call
   console.log('get user initial')
   setTimeout(() => {
@@ -12,7 +14,7 @@ export const getUser = () => (dispatch: Dispatch) => {
   }, 200);
 };
 
-export const newUser = (name: string, age: number) => (dispatch: Dispatch) => {
+export const newUser = (name: string, age: number): ThunkResult<void> => (dispatch) => {
   // pretend this is an API call
   setTimeout(() => {
     dispatch(setNewUser(name, age))
