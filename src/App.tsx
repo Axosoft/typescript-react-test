@@ -3,7 +3,21 @@ import './App.css';
 
 import logo from './logo.svg';
 
-class App extends React.Component {
+interface AppProps {
+  id: string
+}
+
+interface AppState {
+  thing: string
+}
+
+class App extends React.Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
+    this.state = {
+      thing: 'asdf'
+    }
+  }
   public render() {
     return (
       <div className="App">
