@@ -54,8 +54,8 @@ class App extends React.Component<APP_PROPS, IAppState> {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <button onClick={this.replaceUser}>{this.state.newUserSubmitting ? 'loading.....' : 'New User'}</button>
-        <button onClick={login}>Old User</button>
+        <Button onClick={this.replaceUser} primary>{this.state.newUserSubmitting ? 'loading.....' : 'New User'}</Button>
+        <Button onClick={login}>Old User</Button>
         <p>user: {user}</p>
         <p>Temporary Admin?: {String(temporaryAdmin)}</p>
       </div>
