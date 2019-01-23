@@ -9,7 +9,7 @@ import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App requiredProp="asdf" />
   </Provider>,
   document.getElementById('root') as HTMLElement,
 );
