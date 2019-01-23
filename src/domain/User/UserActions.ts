@@ -1,37 +1,34 @@
-import { ThunkResult } from '../index';
-
-/* action constants */
-export const USER_RETREIVED_FROM_API = 'USER_RETREIVED_FROM_API';
-export const NEW_USER_CREATED = 'NEW_USER_CREATED';
+import { ThunkResult, typeString } from '../index';
 
 /* action thunks */
 export const fetchUser = (): ThunkResult<void> => (dispatch) => {
   // pretend this is an API call
   setTimeout(() => {
-    dispatch(setUser('hello'));
+    dispatch(userRetreivedFromApi('hello'));
   }, 200);
 };
 
 export const createNewUser = (name: string, age: number): ThunkResult<void> => (dispatch) => {
   // pretend this is an API call
   setTimeout(() => {
-    dispatch(setNewUser(name, age));
+    dispatch(newUserCreated(name, age));
   }, 200);
 };
 
 /* action creators */
 // ok I know these do the same thing but the assumption
 // is that they'd do different things and I'm just not very creative rn
-export const setUser = (user: string) => ({
-  type: USER_RETREIVED_FROM_API as typeof USER_RETREIVED_FROM_API,
+export const userRetreivedFromApi = (user: string) => ({
+  type: typeString('USER_RETREIVED_FROM_API'),
   user,
 });
 
-export const setNewUser = (name: string, age: number) => ({
-  type: NEW_USER_CREATED as typeof NEW_USER_CREATED,
-  user: `${name}: ${age}`,
+export const newUserCreated = (name: string, age: number) => ({
+  age,
+  type: typeString('NEW_USER_CREATED'),
+  user: name,
 });
 
 export type USER_ACTION =
-  ReturnType<typeof setUser> |
-  ReturnType<typeof setNewUser>;
+  ReturnType<typeof userRetreivedFromApi> |
+  ReturnType<typeof newUserCreated>;

@@ -28,3 +28,10 @@ export const store = createStore(
 
 // this would be a union of all the action types from the various action files
 export type  ROOT_ACTION = USER_ACTION;
+
+// this function simply returns the string you pass it
+// but with the type signature equivalent to:
+// 'ASDF' as 'ASDF'
+export function typeString<T extends string|number|symbol>(v: T): T {
+  return v;
+}
