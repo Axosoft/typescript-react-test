@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 
+import { Button } from './components/utility/Button';
 import { IRootState, ThunkDispatch } from './domain/index';
 import { createNewUser, fetchUser } from './domain/User/UserActions';
 import logo from './logo.svg';
