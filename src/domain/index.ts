@@ -32,8 +32,6 @@ export type  ROOT_ACTION = USER_ACTION;
 // this function simply returns the string you pass it
 // but with the type signature equivalent to:
 // 'ASDF' as 'ASDF'
-export function ConstantString<U extends string>(v: U): U {
-  return v;
-}
+export const ConstantString = <U extends string>(v: U): U => v;
 
 export const T = ConstantString;
