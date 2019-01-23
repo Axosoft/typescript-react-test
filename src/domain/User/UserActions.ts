@@ -5,7 +5,7 @@ export const fetchUser = (): ThunkResult<void> => (dispatch) => {
   // pretend this is an API call
   setTimeout(() => {
     dispatch(UserRetreivedFromApi('asdf'));
-  }, 200);
+  }, 0);
 };
 
 export const createNewUser = (name: string, temporaryAdmin: boolean): ThunkResult<Promise<null>> => (dispatch) =>

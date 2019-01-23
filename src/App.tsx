@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import './App.css';
 
 import { Button } from './components/utility/Button';
 import { IRootState, ThunkDispatch } from './domain/index';
+import { createTodo } from './domain/Todo/TodoActions';
 import { createNewUser, fetchUser } from './domain/User/UserActions';
 import logo from './logo.svg';
 
@@ -14,11 +16,13 @@ interface IAppState {
 
 const mapStateToProps = (state: IRootState) => ({
   temporaryAdmin: state.User.temporaryAdmin,
+  todos: state.Todo.todos,
   user: state.User.user,
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
   login: () => dispatch(fetchUser()),
+  makeTodo: (name: string) => dispatch(createTodo(name)),
   replaceUser: () => dispatch(createNewUser('chuck', true)),
 });
 
@@ -30,6 +34,11 @@ interface ICustomProps {
 
 // the new way
 type APP_PROPS = ReturnType<typeof mapDispatchToProps> & ReturnType<typeof mapStateToProps> & ICustomProps;
+
+const BlueButton = styled(Button)`
+  color: blue;
+  border-color: blue;
+`;
 
 class App extends React.Component<APP_PROPS, IAppState> {
   constructor(props: APP_PROPS) {
@@ -46,6 +55,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
     const {
       login,
       temporaryAdmin,
+      makeTodo,
       user,
     } = this.props;
     return (
@@ -56,8 +66,15 @@ class App extends React.Component<APP_PROPS, IAppState> {
         </header>
         <Button onClick={this.replaceUser} primary>{this.state.newUserSubmitting ? 'loading.....' : 'New User'}</Button>
         <Button onClick={login}>Old User</Button>
+        <BlueButton onClick={() => makeTodo('asdf')}>Make Todo</BlueButton>
         <p>user: {user}</p>
         <p>Temporary Admin?: {String(temporaryAdmin)}</p>
+        <ul>
+          // @ts-ignore
+          {this.props.todos.map((todo) => (
+            <li key={todo.id}>{todo.text}</li>
+          ))}
+        </ul>
       </div>
     );
   }
