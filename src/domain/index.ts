@@ -6,7 +6,7 @@ import { USER_ACTION } from './User/UserActions';
 import { UserReducer, UserState } from './User/UserReducer';
 
 // Use these types to type action thunks and mapdispatch definitions
-//  (see App.tsx and UserActions.ts)
+//  (see App.tsx and UserActions.ts for examples of usage)
 // R is the return type of the thunk, in case you want to return a promise or something
 export type ThunkResult<R> = ThunkAction<R, IRootState, null, ROOT_ACTION>;
 export type ThunkDispatch = DefaultThunkDispatch<IRootState, null, ROOT_ACTION>;
