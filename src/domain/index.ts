@@ -32,6 +32,7 @@ export type  ROOT_ACTION = USER_ACTION;
 // this function simply returns the string you pass it
 // but with the type signature equivalent to:
 // 'ASDF' as 'ASDF'
+// aka its type is 'that specific string' instead of 'string' in general
 export const ConstantString = <U extends string>(v: U): U => v;
 
 export const T = ConstantString;

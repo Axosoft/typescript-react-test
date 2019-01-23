@@ -8,10 +8,10 @@ export const fetchUser = (): ThunkResult<void> => (dispatch) => {
   }, 200);
 };
 
-export const createNewUser = (name: string, age: number): ThunkResult<void> => (dispatch) => {
+export const createNewUser = (name: string, temporaryAdmin: boolean): ThunkResult<void> => (dispatch) => {
   // pretend this is an API call
   setTimeout(() => {
-    dispatch(NewUserCreated(name, age));
+    dispatch(NewUserCreated(name, temporaryAdmin));
   }, 200);
 };
 
@@ -23,8 +23,8 @@ export const UserRetreivedFromApi = (user: string) => ({
   user,
 });
 
-export const NewUserCreated = (name: string, age: number) => ({
-  age,
+export const NewUserCreated = (name: string, temporaryAdmin: boolean) => ({
+  temporaryAdmin,
   type: ConstantString('NEW_USER_CREATED'),
   user: name,
 });

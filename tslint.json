@@ -3,6 +3,7 @@
   "rules": {
     "quotemark": [true, "single", "jsx-double"]
   },
+  "defaultSeverity": "warn",
   "linterOptions": {
     "exclude": [
       "config/**/*.js",

@@ -11,20 +11,14 @@ interface IAppState {
 }
 
 const mapStateToProps = (state: IRootState) => ({
+  temporaryAdmin: state.User.temporaryAdmin,
   user: state.User.user,
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
   login: () => dispatch(fetchUser()),
-  replaceUser: () => dispatch(createNewUser('chuck', 10)),
+  replaceUser: () => dispatch(createNewUser('chuck', true)),
 });
-
-// // the old way to do things
-// interface IAppProps {
-//   user: string;
-//   login: () => void;
-//   replaceUser: () => void;
-// }
 
 // if you need custom props
 interface ICustomProps {
@@ -49,6 +43,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
     const {
       login,
       replaceUser,
+      temporaryAdmin,
     } = this.props;
     return (
       <div className="App">
@@ -59,6 +54,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
         <button onClick={replaceUser}>New User</button>
         <button onClick={login}>Old User</button>
         <p>user: {this.props.user}</p>
+        <p>Temporary Admin?: {String(temporaryAdmin)}</p>
       </div>
     );
   }
