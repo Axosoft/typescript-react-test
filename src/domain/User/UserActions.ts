@@ -1,8 +1,10 @@
 import { ThunkResult } from '../index';
 
+/* action constants */
 export const USER_RETREIVED_FROM_API = 'USER_RETREIVED_FROM_API';
 export const NEW_USER_CREATED = 'NEW_USER_CREATED';
 
+/* action thunks */
 export const fetchUser = (): ThunkResult<void> => (dispatch) => {
   // pretend this is an API call
   setTimeout(() => {
@@ -17,6 +19,7 @@ export const createNewUser = (name: string, age: number): ThunkResult<void> => (
   }, 200);
 };
 
+/* action creators */
 // ok I know these do the same thing but the assumption
 // is that they'd do different things and I'm just not very creative rn
 export const setUser = (user: string) => ({
