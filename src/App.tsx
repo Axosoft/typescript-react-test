@@ -1,36 +1,36 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 
+import { IRootState, ThunkDispatch } from './domain/index';
+import { fetchUser } from './domain/User/UserActions';
 import logo from './logo.svg';
-import { connect } from 'react-redux';
-import { RootState, ThunkDispatch } from './domain/index';
-import { getUser } from './domain/User/UserActions';
 
-interface AppProps {
-  user: string,
-  login: typeof getUser
+interface IAppProps {
+  user: string;
+  login: typeof fetchUser;
 }
 
-interface AppState {
-  thing: string
+interface IAppState {
+  thing: string;
 }
 
-const mapStateToProps = (state: RootState) => ({
-  user: state.User.user
-})
+const mapStateToProps = (state: IRootState) => ({
+  user: state.User.user,
+});
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
-  login: () => dispatch(getUser())
-})
+  login: () => dispatch(fetchUser()),
+});
 
-class App extends React.Component<AppProps, AppState> {
-  constructor(props: AppProps) {
+class App extends React.Component<IAppProps, IAppState> {
+  constructor(props: IAppProps) {
     super(props);
     this.state = {
-      thing: 'asdf'
-    }
+      thing: 'asdf',
+    };
   }
-  componentDidMount() {
+  public componentDidMount() {
     this.props.login();
   }
   public render() {
