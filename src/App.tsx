@@ -8,6 +8,7 @@ import logo from './logo.svg';
 
 interface IAppState {
   thing: string;
+  newUserSubmitting: boolean;
 }
 
 const mapStateToProps = (state: IRootState) => ({
@@ -33,6 +34,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
   constructor(props: APP_PROPS) {
     super(props);
     this.state = {
+      newUserSubmitting: false,
       thing: 'asdf',
     };
   }
@@ -42,8 +44,8 @@ class App extends React.Component<APP_PROPS, IAppState> {
   public render() {
     const {
       login,
-      replaceUser,
       temporaryAdmin,
+      user,
     } = this.props;
     return (
       <div className="App">
@@ -51,12 +53,23 @@ class App extends React.Component<APP_PROPS, IAppState> {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <button onClick={replaceUser}>New User</button>
+        <button onClick={this.replaceUser}>{this.state.newUserSubmitting ? 'loading.....' : 'New User'}</button>
         <button onClick={login}>Old User</button>
-        <p>user: {this.props.user}</p>
+        <p>user: {user}</p>
         <p>Temporary Admin?: {String(temporaryAdmin)}</p>
       </div>
     );
+  }
+  private replaceUser = () => {
+    this.setState({
+      newUserSubmitting: true,
+    });
+    this.props.replaceUser()
+      .then(() => {
+        this.setState({
+          newUserSubmitting: false,
+        });
+      });
   }
 }
 

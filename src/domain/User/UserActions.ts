@@ -8,16 +8,16 @@ export const fetchUser = (): ThunkResult<void> => (dispatch) => {
   }, 200);
 };
 
-export const createNewUser = (name: string, temporaryAdmin: boolean): ThunkResult<void> => (dispatch) => {
+export const createNewUser = (name: string, temporaryAdmin: boolean): ThunkResult<Promise<null>> => (dispatch) =>
   // pretend this is an API call
-  setTimeout(() => {
-    dispatch(NewUserCreated(name, temporaryAdmin));
-  }, 200);
-};
+  new Promise((resolve) => {
+    setTimeout(() => {
+      dispatch(NewUserCreated(name, temporaryAdmin));
+      resolve();
+    }, 600);
+  });
 
 /* action creators */
-// ok I know these do the same thing but the assumption
-// is that they'd do different things and I'm just not very creative rn
 export const UserRetreivedFromApi = (user: string) => ({
   type: ConstantString('USER_RETREIVED_FROM_API'),
   user,
