@@ -10,7 +10,7 @@ import {
   TODO_ACTION,
 } from './TodoActions';
 
-interface ITodo {
+export interface ITodo {
   id: number;
   text: string;
 }
@@ -19,7 +19,7 @@ interface ITodoByIdMap {
   [key: string]: ITodo;
 }
 
-type TODO_ARRAY = [ITodo] | [];
+export type TODO_ARRAY = [ITodo] | [];
 
 const TodoDefaultState = {
   todoByIdMap: {} as ITodoByIdMap,

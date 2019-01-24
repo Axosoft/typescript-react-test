@@ -8,6 +8,7 @@ import { IRootState, ThunkDispatch } from './domain/index';
 import { createTodo } from './domain/Todo/TodoActions';
 import { createNewUser, fetchUser } from './domain/User/UserActions';
 import logo from './logo.svg';
+import { ITodo } from './domain/Todo/TodoReducer';
 
 interface IAppState {
   thing: string;
@@ -40,6 +41,11 @@ const BlueButton = styled(Button)`
   border-color: blue;
 `;
 
+const getTodoList = (todos: [ITodo]) =>
+  todos.map((todo) => (
+    <li key={todo.id}>{todo.text}</li>
+  ));
+
 class App extends React.Component<APP_PROPS, IAppState> {
   constructor(props: APP_PROPS) {
     super(props);
@@ -55,6 +61,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
     const {
       login,
       temporaryAdmin,
+      todos,
       makeTodo,
       user,
     } = this.props;
@@ -70,10 +77,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
         <p>user: {user}</p>
         <p>Temporary Admin?: {String(temporaryAdmin)}</p>
         <ul>
-          // @ts-ignore
-          {this.props.todos.map((todo) => (
-            <li key={todo.id}>{todo.text}</li>
-          ))}
+          {todos.length > 0 && getTodoList(todos as [ITodo])}
         </ul>
       </div>
     );
