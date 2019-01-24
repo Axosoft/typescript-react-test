@@ -3,7 +3,6 @@ import {
   assoc,
   indexBy,
   pipe,
-  prop,
 } from 'ramda';
 
 import {
@@ -31,10 +30,9 @@ export const TodoReducer = (state: TODO_STATE, action: TODO_ACTION): TODO_STATE 
     case 'TODO_CREATED':
       const { todos } = state;
       const newTodos = append(action.todo, todos) as ITodo[];
-      // @ts-ignore
       return pipe(
         assoc('todos', newTodos),
-        assoc('todoByIdMap', indexBy(prop('id'), newTodos)),
+        assoc('todoByIdMap', indexBy((t) => String(t.id), newTodos)),
       )(state);
     default:
       return { ...TodoDefaultState,  ...state };
