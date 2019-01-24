@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import './App.css';
 
-import { Button } from './components/presentational/Button';
+import { Button } from './components/primitives/Button';
+import { Todo } from './components/Todo';
 import { IRootState, ThunkDispatch } from './domain/index';
 import { createTodo } from './domain/Todo/TodoActions';
 import { ITodo } from './domain/Todo/TodoReducer';
 import { createNewUser, fetchUser } from './domain/User/UserActions';
+import { TodoForm } from './components/TodoForm';
 // import logo from './logo.svg';
 
 interface IAppState {
@@ -43,7 +44,7 @@ const BlueButton = styled(Button)`
 
 const getTodoList = (todos: ITodo[]) =>
   todos.map((todo) => (
-    <li key={todo.id}>{todo.text}</li>
+    <Todo key={todo.id} todo={todo} />
   ));
 
 class App extends React.Component<APP_PROPS, IAppState> {
@@ -80,6 +81,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
         <ul>
           {getTodoList(todos)}
         </ul>
+        <TodoForm />
       </div>
     );
   }

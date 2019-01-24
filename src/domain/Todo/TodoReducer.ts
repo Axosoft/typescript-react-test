@@ -3,6 +3,7 @@ import {
   assoc,
   indexBy,
   pipe,
+  reject,
 } from 'ramda';
 
 import {
@@ -27,13 +28,19 @@ export type TODO_STATE = typeof TodoDefaultState;
 
 export const TodoReducer = (state: TODO_STATE, action: TODO_ACTION): TODO_STATE => {
   switch (action.type) {
-    case 'TODO_CREATED':
+    case 'TODO_CREATED': {
       const { todos } = state;
       const newTodos = append(action.todo, todos) as ITodo[];
       return pipe(
         assoc('todos', newTodos),
         assoc('todoByIdMap', indexBy((t) => String(t.id), newTodos)),
       )(state);
+    }
+    case 'TODO_DELETED': {
+      const { todos } = state;
+      const newTodos = reject((todo: ITodo) => todo.id === action.id, todos);
+      return assoc('todos', newTodos, state);
+    }
     default:
       return { ...TodoDefaultState,  ...state };
   }
