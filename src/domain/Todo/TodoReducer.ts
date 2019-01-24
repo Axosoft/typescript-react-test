@@ -19,11 +19,11 @@ interface ITodoByIdMap {
   [key: string]: ITodo;
 }
 
-export type TODO_ARRAY = [ITodo] | [];
+// export type TODO_ARRAY = ITodo[];
 
 const TodoDefaultState = {
   todoByIdMap: {} as ITodoByIdMap,
-  todos: [] as TODO_ARRAY,
+  todos: [] as ITodo[],
 };
 
 export type TODO_STATE = typeof TodoDefaultState;
@@ -32,7 +32,7 @@ export const TodoReducer = (state: TODO_STATE, action: TODO_ACTION): TODO_STATE 
   switch (action.type) {
     case 'TODO_CREATED':
       const { todos } = state;
-      const newTodos = append(action.todo, todos) as TODO_ARRAY;
+      const newTodos = append(action.todo, todos) as ITodo[];
       // @ts-ignore
       return pipe(
         assoc('todos', newTodos),

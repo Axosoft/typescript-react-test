@@ -41,7 +41,7 @@ const BlueButton = styled(Button)`
   border-color: blue;
 `;
 
-const getTodoList = (todos: [ITodo]) =>
+const getTodoList = (todos: ITodo[]) =>
   todos.map((todo) => (
     <li key={todo.id}>{todo.text}</li>
   ));
@@ -77,7 +77,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
         <p>user: {user}</p>
         <p>Temporary Admin?: {String(temporaryAdmin)}</p>
         <ul>
-          {todos.length > 0 && getTodoList(todos as [ITodo])}
+          {getTodoList(todos)}
         </ul>
       </div>
     );
