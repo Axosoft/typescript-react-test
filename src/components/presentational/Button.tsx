@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 interface IButtonProps {
+  /** Boolean indicating whether the button should render with a more vibrant style
+   * @optional
+   * @default false
+   */
   primary?: boolean;
 }
 
