@@ -14,18 +14,23 @@ import { createTodo } from 'src/domain/Todo/TodoActions';
 import { Button } from './primitives/Button';
 import { Form } from './primitives/forms/Form';
 import InputGroup from './primitives/forms/InputGroup';
+import ButtonGroup from './primitives/ButtonGroup';
+
+type TODO_FORM_PROPS = ReturnType<typeof mapDispatchToProps>;
+type TODO_FORM_VALUE_TYPES = typeof TodoDefaultValues;
+
+// interface IFormProps {
+//   create: () => void;
+//   // asdf
+// }
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
   create: (text: string) => dispatch(createTodo(text)),
 });
 
-type TODO_FORM_PROPS = ReturnType<typeof mapDispatchToProps>;
-
 const TodoDefaultValues = {
   text: '',
 };
-
-type TODO_FORM_VALUE_TYPES = typeof TodoDefaultValues;
 
 const TodoFormValidationSchema = yup.object().shape({
   text: yup.string().required(),
@@ -45,7 +50,11 @@ const TodoFormComponent = (props: TODO_FORM_PROPS) => (
         <Field name="text" />
         <ErrorMessage name="text" />
       </InputGroup>
-      <Button type="submit">New</Button>
+      <InputGroup>
+        <ButtonGroup>
+          <Button type="submit">New</Button>
+        </ButtonGroup>
+      </InputGroup>
     </Form>
   </Formik>
 );

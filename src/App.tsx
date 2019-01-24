@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { Button } from './components/primitives/Button';
+import ButtonGroup from './components/primitives/ButtonGroup';
 import { Todo } from './components/Todo';
 import { TodoForm } from './components/TodoForm';
 import { IRootState, ThunkDispatch } from './domain/index';
@@ -36,6 +37,11 @@ interface ICustomProps {
 
 // the new way
 type APP_PROPS = ReturnType<typeof mapDispatchToProps> & ReturnType<typeof mapStateToProps> & ICustomProps;
+// interface IAppProps {
+//   temporaryAdmin: boolean;
+//   todos: ITodo[];
+//   user: string;
+// }
 
 const BlueButton = styled(Button)`
   color: blue;
@@ -72,10 +78,12 @@ class App extends React.Component<APP_PROPS, IAppState> {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <Button onClick={this.replaceUser} primary>{this.state.newUserSubmitting ? 'loading.....' : 'New User'}</Button>
-        <Button onClick={login}>Old User</Button>
-        <BlueButton onClick={() => makeTodo('asdf')}>Make Todo</BlueButton>
-        <BlueButton onClick={() => makeTodo('asdf')}>Make Todo 2</BlueButton>
+        <ButtonGroup>
+          <Button margin={1} onClick={this.replaceUser} primary>{this.state.newUserSubmitting ? 'loading.....' : 'New User'}</Button>
+          <Button margin={1} onClick={login}>Old User</Button>
+          <BlueButton margin={1} onClick={() => makeTodo('asdf')}>Make Todo</BlueButton>
+          <BlueButton margin={1} onClick={() => makeTodo('asdf')}>Make Todo 2</BlueButton>
+        </ButtonGroup>
         <p>user: {user}</p>
         <p>Temporary Admin?: {String(temporaryAdmin)}</p>
         <ul>

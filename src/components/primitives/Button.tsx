@@ -5,13 +5,14 @@ interface IButtonProps {
    * @default false
    */
   primary?: boolean;
+  margin?: number | null;
 }
 
 export const Button = styled.button`
   background: ${(props: IButtonProps) => props.primary ? 'palevioletred' : 'white'};
   color: ${(props) => props.primary ? 'white' : 'palevioletred'};
   font-size: 1em;
-  margin: .5em;
+  margin: ${(props: IButtonProps) => props.margin && props.margin === 1 ? '.5em' : 'none'};
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
   border-radius: 3px;

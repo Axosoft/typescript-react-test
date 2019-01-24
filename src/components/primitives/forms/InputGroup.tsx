@@ -6,6 +6,7 @@ import styled from 'styled-components';
 // }
 
 const InputGroup = styled.div`
+  margin: .5em 0;
   display: flex;
   flex-direction: column;
 `;
