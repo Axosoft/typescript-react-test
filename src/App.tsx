@@ -4,11 +4,11 @@ import styled from 'styled-components';
 
 import { Button } from './components/primitives/Button';
 import { Todo } from './components/Todo';
+import { TodoForm } from './components/TodoForm';
 import { IRootState, ThunkDispatch } from './domain/index';
 import { createTodo } from './domain/Todo/TodoActions';
 import { ITodo } from './domain/Todo/TodoReducer';
 import { createNewUser, fetchUser } from './domain/User/UserActions';
-import { TodoForm } from './components/TodoForm';
 // import logo from './logo.svg';
 
 interface IAppState {
