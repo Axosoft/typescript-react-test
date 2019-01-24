@@ -19,8 +19,6 @@ interface ITodoByIdMap {
   [key: string]: ITodo;
 }
 
-// export type TODO_ARRAY = ITodo[];
-
 const TodoDefaultState = {
   todoByIdMap: {} as ITodoByIdMap,
   todos: [] as ITodo[],

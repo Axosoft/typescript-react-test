@@ -6,9 +6,9 @@ import './App.css';
 import { Button } from './components/utility/Button';
 import { IRootState, ThunkDispatch } from './domain/index';
 import { createTodo } from './domain/Todo/TodoActions';
+import { ITodo } from './domain/Todo/TodoReducer';
 import { createNewUser, fetchUser } from './domain/User/UserActions';
 import logo from './logo.svg';
-import { ITodo } from './domain/Todo/TodoReducer';
 
 interface IAppState {
   thing: string;
