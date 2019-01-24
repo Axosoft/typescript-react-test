@@ -74,6 +74,7 @@ class App extends React.Component<APP_PROPS, IAppState> {
         <Button onClick={this.replaceUser} primary>{this.state.newUserSubmitting ? 'loading.....' : 'New User'}</Button>
         <Button onClick={login}>Old User</Button>
         <BlueButton onClick={() => makeTodo('asdf')}>Make Todo</BlueButton>
+        <BlueButton onClick={() => makeTodo('asdf')}>Make Todo 2</BlueButton>
         <p>user: {user}</p>
         <p>Temporary Admin?: {String(temporaryAdmin)}</p>
         <ul>
