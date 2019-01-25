@@ -1,6 +1,6 @@
 import {
-  ErrorMessage,
-  Field,
+  // ErrorMessage,
+  // Field,
   // FieldProps,
   Formik,
   FormikProps,
@@ -12,27 +12,21 @@ import * as yup from 'yup';
 import { ThunkDispatch } from 'src/domain';
 import { createTodo } from 'src/domain/Todo/TodoActions';
 import { Button } from './primitives/Button';
-import { Form } from './primitives/forms/Form';
-import InputGroup from './primitives/forms/InputGroup';
 import ButtonGroup from './primitives/ButtonGroup';
-
-type TODO_FORM_PROPS = ReturnType<typeof mapDispatchToProps>;
-type TODO_FORM_VALUE_TYPES = typeof TodoDefaultValues;
-
-// interface IFormProps {
-//   create: () => void;
-//   // asdf
-// }
+import { Form } from './primitives/forms/Form';
+import { DefaultField } from './primitives/forms/Input';
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
   create: (text: string) => dispatch(createTodo(text)),
 });
 
 const TodoDefaultValues = {
+  email: '',
   text: '',
 };
 
 const TodoFormValidationSchema = yup.object().shape({
+  email: yup.string().email().required(),
   text: yup.string().required(),
 });
 
@@ -45,18 +39,19 @@ const TodoFormComponent = (props: TODO_FORM_PROPS) => (
     }}
     validationSchema={TodoFormValidationSchema}
   >
-    <Form>
-      <InputGroup>
-        <Field name="text" />
-        <ErrorMessage name="text" />
-      </InputGroup>
-      <InputGroup>
-        <ButtonGroup>
-          <Button type="submit">New</Button>
+    {({ dirty, errors }: FormikProps<TODO_FORM_VALUE_TYPES>) => (
+      <Form>
+        <DefaultField name="text" />
+        <DefaultField name="email" />
+        <ButtonGroup align="center">
+          <Button disabled={!dirty || Boolean(Object.keys(errors).length)} primary type="submit">New</Button>
         </ButtonGroup>
-      </InputGroup>
-    </Form>
+      </Form>
+    )}
   </Formik>
 );
+
+type TODO_FORM_PROPS = ReturnType<typeof mapDispatchToProps>;
+type TODO_FORM_VALUE_TYPES = typeof TodoDefaultValues;
 
 export const TodoForm = connect(null, mapDispatchToProps)(TodoFormComponent);

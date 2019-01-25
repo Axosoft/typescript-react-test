@@ -8,13 +8,35 @@ interface IButtonProps {
   margin?: number | null;
 }
 
-export const Button = styled.button`
-  background: ${(props: IButtonProps) => props.primary ? 'palevioletred' : 'white'};
-  color: ${(props) => props.primary ? 'white' : 'palevioletred'};
+// would the emotion object syntax make this easier?
+// could we just have one function that returns an object that we spread into the rest of the style
+const getBackgroundColor = (primary?: boolean, disabled?: boolean) => {
+  if (disabled) {
+    return 'lightgrey';
+  }
+  if (primary) {
+    return 'palevioletred';
+  }
+  return 'white';
+};
+
+const getColor = (primary?: boolean, disabled?: boolean) => {
+  if (disabled) {
+    return 'grey';
+  }
+  if (primary) {
+    return 'white';
+  }
+  return 'palevioletred';
+};
+
+export const Button = styled.button<IButtonProps>`
+  background: ${(props) => getBackgroundColor(props.primary, props.disabled)};
+  color: ${({primary, disabled}) => getColor(primary, disabled)};
   font-size: 1em;
   margin: ${(props: IButtonProps) => props.margin && props.margin === 1 ? '.5em' : 'none'};
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  border: 2px solid ${({disabled}) => disabled ? 'grey' : 'palevioletred'};
   border-radius: 3px;
 `;
 

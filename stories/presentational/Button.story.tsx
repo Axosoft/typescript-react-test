@@ -15,7 +15,7 @@ storiesOf('Styled Button', module)
       A primitive, generally look to more specific button implementations`,
     },
   })
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
+  .add('default', () => <Button onClick={action('clicked')}>Hello Button</Button>)
   .add('primary', () => (
     <Button onClick={action('clicked')} primary>
       hello youtube!

@@ -8,7 +8,12 @@ import styled from 'styled-components';
 const InputGroup = styled.div`
   margin: .5em 0;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+`;
+
+export const FormRow = styled.div`
+  display: flex;
+  margin: .5em 0;
 `;
 
 // const InputGroup = ({children}: IInputGroupProps) => (
