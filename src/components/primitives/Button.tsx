@@ -32,11 +32,11 @@ const getColor = (primary?: boolean, disabled?: boolean) => {
 
 export const Button = styled.button<IButtonProps>`
   background: ${(props) => getBackgroundColor(props.primary, props.disabled)};
-  color: ${({primary, disabled}) => getColor(primary, disabled)};
+  color: ${({ primary, disabled }) => getColor(primary, disabled)};
   font-size: 1em;
   margin: ${(props: IButtonProps) => props.margin && props.margin === 1 ? '.5em' : 'none'};
   padding: 0.25em 1em;
-  border: 2px solid ${({disabled}) => disabled ? 'grey' : 'palevioletred'};
+  border: 2px solid ${({ disabled }) => disabled ? 'grey' : 'palevioletred'};
   border-radius: 3px;
 `;
 
@@ -45,3 +45,6 @@ export const DangerButton = styled(Button)`
   border-color: red;
   color: red;
 `;
+
+// better way to do disabled state so it can work with danger and success overrides?
+// how to accomplish a 'successbutton' without making whole new getcolor functions?

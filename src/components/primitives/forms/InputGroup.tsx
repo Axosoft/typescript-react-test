@@ -11,11 +11,6 @@ const InputGroup = styled.div`
   /* flex-direction: column; */
 `;
 
-export const FormRow = styled.div`
-  display: flex;
-  margin: .5em 0;
-`;
-
 // const InputGroup = ({children}: IInputGroupProps) => (
 //   <div>
 //     {children}

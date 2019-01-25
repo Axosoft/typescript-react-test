@@ -1,7 +1,4 @@
 import {
-  // ErrorMessage,
-  // Field,
-  // FieldProps,
   Formik,
   FormikProps,
 } from 'formik';
@@ -11,9 +8,10 @@ import * as yup from 'yup';
 
 import { ThunkDispatch } from 'src/domain';
 import { createTodo } from 'src/domain/Todo/TodoActions';
-import { Button } from './primitives/Button';
 import ButtonGroup from './primitives/ButtonGroup';
 import { Form } from './primitives/forms/Form';
+import { SubmitButton } from './primitives/forms/FormButton';
+import { FormRow } from './primitives/forms/FormRow';
 import { DefaultField } from './primitives/forms/Input';
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
@@ -22,12 +20,16 @@ const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
 
 const TodoDefaultValues = {
   email: '',
+  firstName: '',
+  lastName: '',
   text: '',
 };
 
 const TodoFormValidationSchema = yup.object().shape({
   email: yup.string().email().required(),
-  text: yup.string().required(),
+  firstName: yup.string().required('first name is a required field'),
+  lastName: yup.string(),
+  text: yup.string().required('todo text is a required field'),
 });
 
 const TodoFormComponent = (props: TODO_FORM_PROPS) => (
@@ -39,15 +41,17 @@ const TodoFormComponent = (props: TODO_FORM_PROPS) => (
     }}
     validationSchema={TodoFormValidationSchema}
   >
-    {({ dirty, errors }: FormikProps<TODO_FORM_VALUE_TYPES>) => (
-      <Form>
-        <DefaultField name="text" />
-        <DefaultField name="email" />
-        <ButtonGroup align="center">
-          <Button disabled={!dirty || Boolean(Object.keys(errors).length)} primary type="submit">New</Button>
-        </ButtonGroup>
-      </Form>
-    )}
+    <Form autoComplete="off">
+      <DefaultField label="Todo text" name="text" required />
+      <DefaultField label="Reminder emails" name="email" required />
+      <FormRow>
+        <DefaultField label="First Name" name="firstName" required />
+        <DefaultField label="Last Name" name="lastName" />
+      </FormRow>
+      <ButtonGroup align="center">
+        <SubmitButton>New</SubmitButton>
+      </ButtonGroup>
+    </Form>
   </Formik>
 );
 
