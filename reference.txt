@@ -1,0 +1,12 @@
+import { color } from 'styled-system'
+import styled from 'styled-components'
+import { Box } from 'rebass'
+
+// const Box = styled.div(space, fontSize, width, color);
+
+export const FlexColorBox = styled(Box)`
+  flex: 1 1 auto;
+  ${color}
+`;
+
+<Whatever m={1} />
