@@ -6,8 +6,8 @@ import SidebarNaviation from './SidebarNavigation';
 const Sidebar = () => {
   return (
     <Box
-      bg="secondary"
-      p={2}
+      bg="ui.sidebar"
+      p={3}
       width="320px"
     >
     <ProfileSummary />

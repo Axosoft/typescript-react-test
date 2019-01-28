@@ -12,8 +12,8 @@ interface INavigationItemProps {
 }
 
 const NavigationItem = ({ text, icon, path }: INavigationItemProps) => (
-  <Link href={path}>
-    <Flex p={1}>
+  <Link href={path} color='text.light.primary'>
+    <Flex p={2} color>
       <Icon icon={icon} />
       <Text>{text}</Text>
     </Flex>

@@ -13,6 +13,8 @@ class App extends React.Component<{}, {}> {
     return (
       <Flex
         flex="auto"
+        color="text.light.primary"
+        bg="ui.primary"
       >
         <Sidebar />
         <MainContent />

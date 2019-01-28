@@ -3,17 +3,26 @@ import { Flex, Image, Text } from 'rebass';
 
 const ProfileSummary = () => (
   <Flex
-    bg="red"
+    bg="ui.sidebar"
+    p={2}
+    alignItems='center'
   >
-    <Image src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg" />
-    <Flex flex="auto" flexDirection="column" justifyContent="center" p={3}>
+    <Image
+      src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg"
+      width={40}
+      height={40}
+    />
+    <Flex flex="auto" flexDirection="column" justifyContent="center" ml={2}>
       <Text
-        fontSize={0}
+        color='text.light.secondary'
+        fontSize={1}
+        mb={1}
       >
         Logged in as
       </Text>
       <Text
-        fontSize={2}
+        fontSize={3}
+        fontWeight='bold'
       >
         Chuck Dries
       </Text>

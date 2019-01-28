@@ -9,9 +9,25 @@ export const defaultTheme = {
     accent: 'yellow',
     disabled: 'grey',
     error: 'red',
-    primary: blue,
-    secondary: 'lightblue',
+    text: {
+      dark: {
+        disabled: '#BBBBBB',
+        primary: '#333333',
+        selected: '#000000',
+        secondary: '#888888',
+      },
+      light: {
+        disabled: '#858F9E',
+        primary: '#D1E3FF',
+        selected: '#DEEBFF',
+        secondary: '#A0B0C8',
+      },
+    },
     success: green,
+    ui: {
+      primary: '#0C203E',
+      sidebar: '#000F27',
+    },
   },
   fontSize: [
     10, 12, 14, 16, 18, 20, 24,
