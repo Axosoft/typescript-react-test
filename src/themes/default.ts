@@ -1,13 +1,17 @@
+const blue = '#007ce0';
+const green = 'green';
+
 export const defaultTheme = {
   breakpoints: ['544px', '768px', '1012px', '1280px'],
+  buttons: {
+  },
   colors: {
-    black: '#000e1a',
-    blue: '#007ce0',
-    error: '#F00',
-    green: 'green',
-    navy: '#004175',
-    orange: '#FF0000',
-    white: '#fff',
+    accent: 'yellow',
+    disabled: 'grey',
+    error: 'red',
+    primary: blue,
+    secondary: 'lightblue',
+    success: green,
   },
   fontSize: [
     10, 12, 14, 16, 18, 20, 24,

@@ -7,12 +7,13 @@ import App from './App';
 import { store } from './domain';
 import './index.css';
 import { defaultTheme } from './themes/default';
+import './utils/iconUtils';
 // import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <ThemeProvider theme={defaultTheme}>
     <Provider store={store}>
-      <App requiredProp="asdf" />
+      <App />
     </Provider>
   </ThemeProvider>,
   document.getElementById('root') as HTMLElement,

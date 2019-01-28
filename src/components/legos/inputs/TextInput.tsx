@@ -17,21 +17,19 @@ interface ITextInputProps {
   error?: boolean;
 }
 
-// CQ: theme lookup on props.borderColor (styledsystem does for us?)
-const getBorderColor = (props: ITextInputProps & BorderColorProps) =>
-  props.error ? get('colors.error')(props) : props.borderColor;
+type TEXT_INPUT_PROPS = SpaceProps & TextColorProps & BorderColorProps & ITextInputProps;
 
-export const TextInput = styled.input<SpaceProps & TextColorProps & BorderColorProps & ITextInputProps>`
+const hasError =
+  (error: string, fallback: string) =>
+    (props: TEXT_INPUT_PROPS) => props.error ? get(error)(props) : get(fallback)(props);
+
+export const TextInput = styled.input<TEXT_INPUT_PROPS>`
   margin: ${get('space.1')}px;
   padding: ${get('space.1')}px;
   border-radius: ${get('radii.1')}px;
   border-width: 2px;
   border-style: solid;
-  border-color: ${getBorderColor};
+  border-color: ${hasError('colors.error', 'colors.grey')};
   ${space};
   ${color};
 `;
-
-TextInput.defaultProps = {
-  borderColor: 'grey',
-};

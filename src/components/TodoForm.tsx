@@ -10,6 +10,8 @@ import * as yup from 'yup';
 import { ThunkDispatch } from '../domain';
 import { createTodo } from '../domain/Todo/TodoActions';
 import { DefaultField } from './legos/forms/DefaultField';
+import { SubmitButton } from './legos/forms/FormButton';
+import { FormRow } from './legos/forms/FormRow';
 // import ButtonGroup from './primitives/ButtonGroup';
 // import { Form } from './primitives/forms/Form';
 // import { SubmitButton } from './primitives/forms/FormButton';
@@ -22,15 +24,15 @@ const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
 
 const TodoDefaultValues = {
   email: '',
-  // firstName: '',
-  // lastName: '',
+  firstName: '',
+  lastName: '',
   text: '',
 };
 
 const TodoFormValidationSchema = yup.object().shape({
   email: yup.string().email(),
-  // firstName: yup.string().required('first name is a required field'),
-  // lastName: yup.string(),
+  firstName: yup.string().required('first name is a required field'),
+  lastName: yup.string(),
   text: yup.string().required('todo text is a required field'),
 });
 
@@ -46,13 +48,13 @@ const TodoFormComponent = (props: TODO_FORM_PROPS) => (
     <Form autoComplete="off">
       <DefaultField label="Todo Text" required name="text" placeholder="test" />
       <DefaultField label="emails" name="email" type="email" />
-      {/* <FormRow>
+      <FormRow>
         <DefaultField label="First Name" name="firstName" required />
         <DefaultField label="Last Name" name="lastName" />
       </FormRow>
-      <ButtonGroup align="center">
+      {/* <ButtonGroup align="center"> */}
         <SubmitButton>New</SubmitButton>
-      </ButtonGroup> */}
+      {/* </ButtonGroup> */}
     </Form>
   </Formik>
 );
