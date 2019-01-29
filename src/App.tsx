@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Flex } from './components/legos/primitives/Box';
+import { Flex } from "./components/legos/primitives/Flex";
 import MainContent from './components/layout/maincontent/MainContent';
 import Sidebar from './components/layout/sidebar/Sidebar';
 
