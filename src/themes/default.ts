@@ -21,16 +21,13 @@ export const defaultTheme = {
       },
     },
     success: 'green',
+    selected: '#003482',
     ui: {
       primary: '#0C203E',
       sidebar: '#000F27',
     },
   },
-  fontSizes: [
-    10, 12, 14, 16, 18, 20, 24,
-  ],
+  fontSizes: [10, 12, 14, 16, 18, 20, 24],
   radii: [0, 2, 4],
-  space: [
-    0, 4, 8, 16, 32, 64, 128, 256, 512,
-  ],
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 };

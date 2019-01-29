@@ -13,8 +13,8 @@ interface INavigationItemProps {
 
 const NavigationItem = ({ text, icon, path }: INavigationItemProps) => (
   <Link href={path} color='text.light.secondary'>
-    <Flex p={2}>
-      <Icon icon={icon} mr={2} />
+    <Flex p={2} fontSize={2} borderRadius={2}>
+      <Icon icon={icon} mr={3} fixedWidth />
       <Text>{text}</Text>
     </Flex>
   </Link>

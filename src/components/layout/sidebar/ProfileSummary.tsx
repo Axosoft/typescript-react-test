@@ -14,17 +14,10 @@ const ProfileSummary = () => (
       height={40}
     />
     <Flex flex="auto" flexDirection="column" justifyContent="center" ml={2}>
-      <Text
-        color='text.light.secondary'
-        fontSize={1}
-        mb={1}
-      >
+      <Text color='text.light.secondary' fontSize={1} mb={1}>
         Logged in as
       </Text>
-      <Text
-        fontSize={3}
-        fontWeight='bold'
-      >
+      <Text color='text.light.selected' fontSize={3} fontWeight='bold'>
         Chuck Dries
       </Text>
     </Flex>

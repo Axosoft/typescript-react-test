@@ -14,7 +14,7 @@ class App extends React.Component<{}, {}> {
       <Flex
         flex="auto"
         color="text.light.primary"
-        bg="ui.primary"
+        fontSize={2}
       >
         <Sidebar />
         <MainContent />
