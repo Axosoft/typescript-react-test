@@ -1,39 +1,37 @@
 import styled from 'styled-components';
-// import { styles, space, background, borderRadius, borders, width, fontSize } from 'styled-system';
 import {
-  background,
-  BackgroundProps,
-  color,
-  ColorProps,
-  compose,
-  display,
-  DisplayProps,
+  AlignContentProps,
+  AlignItemsProps,
+  AlignSelfProps,
   flex,
-  FlexProps,
-  height,
-  HeightProps,
-  size,
-  SizeProps,
-  width,
-  WidthProps,
+  FlexBasisProps,
+  FlexDirectionProps,
+  FlexWrapProps,
+  JustifyContentProps,
+  JustifySelfProps,
 } from 'styled-system';
-
-const LAYOUT = compose(
-  display,
-  size,
-  width,
-  height,
-  color,
-  background,
-);
-
-type LayoutProps = BackgroundProps & ColorProps & DisplayProps & HeightProps & SizeProps & WidthProps;
+import { LAYOUT, LayoutProps } from './constants';
 
 export const Box = styled.div<LayoutProps>`
   ${LAYOUT};
 `;
 
-export const Flex = styled(Box)<LayoutProps & FlexProps>`
+type FlexContainerProps =
+  FlexDirectionProps &
+  FlexWrapProps &
+  FlexBasisProps &
+  AlignItemsProps &
+  AlignContentProps &
+  JustifySelfProps &
+  AlignSelfProps &
+  JustifyContentProps;
+
+export const Flex = styled('p')<LayoutProps & FlexContainerProps>`
   display: flex;
   ${flex}
 `;
+
+Flex.defaultProps = {
+  display: 'block',
+  flexDirection: 'row',
+};
