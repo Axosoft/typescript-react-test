@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 // import { styles, space, background, borderRadius, borders, width, fontSize } from 'styled-system';
-import { compose, styles, flex } from 'styled-system';
+import { background, color, compose, display, flex, height, size, width } from 'styled-system';
 
 const LAYOUT = compose(
-  styles.display,
-  styles.size,
-  styles.width,
-  styles.height,
-  styles.color,
-  styles.background,
+  display,
+  size,
+  width,
+  height,
+  color,
+  background,
 );
 
 export const CustomBox = styled.div`
