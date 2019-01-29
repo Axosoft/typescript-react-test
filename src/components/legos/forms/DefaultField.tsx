@@ -28,7 +28,7 @@ export const DefaultField = ({ label, name, placeholder, required, type }: DEFAU
             <FormLabel error={errorState} >{label}</FormLabel>
             {required && <Text ml={1} color="red" fontSize={1}>(required)</Text>}
           </Flex>
-          <TextInput {...field} error={errorState} placeholder={placeholder} type={type} />
+          <TextInput {...field} error={errorState} ml={3} placeholder={placeholder} type={type} />
           <Text color="red">{errorMessage}</Text>
         </Flex>
       );

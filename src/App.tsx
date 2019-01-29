@@ -3,6 +3,7 @@ import { Flex } from 'rebass';
 
 import MainContent from './components/layout/maincontent/MainContent';
 import Sidebar from './components/layout/sidebar/Sidebar';
+import { CustomBox } from './components/legos/primitives/Box';
 // import styled from 'styled-components';
 
 // the new way
@@ -18,6 +19,7 @@ class App extends React.Component<{}, {}> {
       >
         <Sidebar />
         <MainContent />
+        <CustomBox width={100} height={500} background={'green'} />
       </Flex>
     );
   }
