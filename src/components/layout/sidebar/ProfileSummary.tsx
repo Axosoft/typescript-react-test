@@ -5,6 +5,7 @@ const ProfileSummary = () => (
   <Flex
     bg="ui.sidebar"
     p={2}
+    mb={2}
     alignItems='center'
   >
     <Image

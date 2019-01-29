@@ -1,6 +1,3 @@
-const blue = '#007ce0';
-const green = 'green';
-
 export const defaultTheme = {
   breakpoints: ['544px', '768px', '1012px', '1280px'],
   buttons: {
@@ -23,13 +20,13 @@ export const defaultTheme = {
         secondary: '#A0B0C8',
       },
     },
-    success: green,
+    success: 'green',
     ui: {
       primary: '#0C203E',
       sidebar: '#000F27',
     },
   },
-  fontSize: [
+  fontSizes: [
     10, 12, 14, 16, 18, 20, 24,
   ],
   radii: [0, 2, 4],
