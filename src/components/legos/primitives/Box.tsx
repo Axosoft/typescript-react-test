@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 // import { styles, space, background, borderRadius, borders, width, fontSize } from 'styled-system';
-import { background, color, compose, display, flex, height, size, width } from 'styled-system';
+import {
+  background,
+  BackgroundProps,
+  color,
+  ColorProps,
+  compose,
+  display,
+  DisplayProps,
+  flex,
+  FlexProps,
+  height,
+  HeightProps,
+  size,
+  SizeProps,
+  width,
+  WidthProps,
+} from 'styled-system';
 
 const LAYOUT = compose(
   display,
@@ -11,10 +27,12 @@ const LAYOUT = compose(
   background,
 );
 
-export const CustomBox = styled.div`
+type LayoutProps = BackgroundProps & ColorProps & DisplayProps & HeightProps & SizeProps & WidthProps;
+
+export const CustomBox = styled.div<LayoutProps>`
   ${LAYOUT};
 `;
 
-export const CustomFlex = styled(CustomBox)`
+export const CustomFlex = styled(CustomBox)<LayoutProps & FlexProps>`
   ${flex}
 `;
