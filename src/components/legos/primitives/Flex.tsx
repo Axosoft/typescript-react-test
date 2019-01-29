@@ -1,31 +1,15 @@
 import styled from 'styled-components';
-import {
-  AlignContentProps,
-  AlignItemsProps,
-  AlignSelfProps,
-  flex,
-  FlexBasisProps,
-  FlexDirectionProps,
-  FlexWrapProps,
-  JustifyContentProps,
-  JustifySelfProps,
-} from 'styled-system';
 import { Box } from './Box';
-import { LayoutProps } from './constants';
+import {
+  FLEX_CONTAINER,
+  FLEX_ITEM,
+  FlexContainerProps,
+  FlexItemProps,
+} from './constants';
 
-type FlexContainerProps =
-  FlexDirectionProps &
-  FlexWrapProps &
-  FlexBasisProps &
-  AlignItemsProps &
-  AlignContentProps &
-  JustifySelfProps &
-  AlignSelfProps &
-  JustifyContentProps;
-
-export const Flex = styled(Box) <LayoutProps & FlexContainerProps> `
-  display: flex;
-  ${flex}
+export const Flex = styled(Box) <FlexContainerProps & FlexItemProps> `
+  ${FLEX_CONTAINER}
+  ${FLEX_ITEM}
 `;
 Flex.defaultProps = {
   display: 'flex',

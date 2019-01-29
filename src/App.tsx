@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Flex } from "./components/legos/primitives/Flex";
 import MainContent from './components/layout/maincontent/MainContent';
 import Sidebar from './components/layout/sidebar/Sidebar';
+import { Flex } from './components/legos/primitives/Flex';
 
 // import styled from 'styled-components';
 
@@ -13,7 +13,8 @@ class App extends React.Component<{}, {}> {
   public render() {
     return (
       <Flex
-        flex="auto"
+        color='colors.text.light.primary'
+        flex='auto'
       >
         <Sidebar />
         <MainContent />

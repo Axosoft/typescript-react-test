@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-import { LAYOUT, LayoutProps } from './constants';
+import { BORDER, BorderProps, COMMON, CommonProps, LAYOUT, LayoutProps } from './constants';
 
-export const Box = styled.div<LayoutProps>`
+export const Box = styled.div<CommonProps & LayoutProps & BorderProps>`
+  ${BORDER}
+  ${COMMON};
   ${LAYOUT};
 `;

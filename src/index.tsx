@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.normal};
     font-size: ${theme.fontSizes[1]}px;
   }
-`
+`;
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

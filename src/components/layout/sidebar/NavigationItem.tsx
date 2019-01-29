@@ -1,15 +1,11 @@
 import * as React from 'react';
 
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Flex, Link, Text } from 'rebass';
-
-import styled from 'styled-components';
-import {
-  borderRadius,
-  BorderRadiusProps,
-} from 'styled-system';
+import { Text } from 'rebass';
 
 import { Icon } from '../../legos/FontAwesomeIcon';
+import { Link } from '../../legos/Link';
+import { Flex } from '../../legos/primitives/Flex';
 
 interface INavigationItemProps {
   text: string;
@@ -17,16 +13,12 @@ interface INavigationItemProps {
   path: string;
 }
 
-const RoundedFlex = styled(Flex)<BorderRadiusProps>`
-  ${borderRadius};
-`;
-
 const NavigationItem = ({ text, icon, path }: INavigationItemProps) => (
-  <Link href={path} color="text.light.secondary">
-    <RoundedFlex p={2} fontSize={2} borderRadius={2}>
-      <Icon icon={icon} mr={3} fixedWidth />
-      <Text>{text}</Text>
-    </RoundedFlex>
+  <Link href={path} color='text.light.secondary'>
+    <Flex p={2} borderRadius={2}>
+      <Icon fontSize={2} icon={icon} mr={3} fixedWidth />
+      <Text fontSize={2}>{text}</Text>
+    </Flex>
   </Link>
 );
 
