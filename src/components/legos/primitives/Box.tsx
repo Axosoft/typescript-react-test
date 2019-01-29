@@ -29,10 +29,11 @@ const LAYOUT = compose(
 
 type LayoutProps = BackgroundProps & ColorProps & DisplayProps & HeightProps & SizeProps & WidthProps;
 
-export const CustomBox = styled.div<LayoutProps>`
+export const Box = styled.div<LayoutProps>`
   ${LAYOUT};
 `;
 
-export const CustomFlex = styled(CustomBox)<LayoutProps & FlexProps>`
+export const Flex = styled(Box)<LayoutProps & FlexProps>`
+  display: flex;
   ${flex}
 `;

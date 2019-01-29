@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Flex } from 'rebass';
 
+import { Flex } from './components/legos/primitives/Box';
 import MainContent from './components/layout/maincontent/MainContent';
 import Sidebar from './components/layout/sidebar/Sidebar';
-import { CustomBox } from './components/legos/primitives/Box';
+
 // import styled from 'styled-components';
 
 // the new way
@@ -12,14 +12,9 @@ import { CustomBox } from './components/legos/primitives/Box';
 class App extends React.Component<{}, {}> {
   public render() {
     return (
-      <Flex
-        flex="auto"
-        color="text.light.primary"
-        fontSize={2}
-      >
+      <Flex flex='auto'>
         <Sidebar />
         <MainContent />
-        <CustomBox width={100} height={500} background={'green'} />
       </Flex>
     );
   }
