@@ -24,10 +24,28 @@ export const defaultTheme = {
     selected: '#003482',
     ui: {
       primary: '#0C203E',
-      sidebar: '#000F27',
+      sidebar: 'var(--bg-sidebar)',
     },
+  },
+  fonts: {
+    normal: fontStack([
+      '-apple-system',
+      'BlinkMacSystemFont',
+      'Segoe UI',
+      'Helvetica',
+      'Arial',
+      'sans-serif',
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol'
+    ]),
+    mono: fontStack(['SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier', 'monospace'])
   },
   fontSizes: [10, 12, 14, 16, 18, 20, 24],
   radii: [0, 2, 4],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 };
+
+function fontStack(fonts) {
+  return fonts.map(font => (font.includes(' ') ? `"${font}"` : font)).join(', ')
+}

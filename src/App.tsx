@@ -12,7 +12,12 @@ import Sidebar from './components/layout/sidebar/Sidebar';
 class App extends React.Component<{}, {}> {
   public render() {
     return (
-      <Flex flex='auto'>
+      <Flex
+        flex="auto"
+        color="text.light.primary"
+        fontSize={1}
+        fonts='normal'
+      >
         <Sidebar />
         <MainContent />
       </Flex>

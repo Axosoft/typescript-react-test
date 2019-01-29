@@ -5,9 +5,9 @@ import NavigationItem from './NavigationItem';
 const SidebarNaviation = () => (
   <Flex flexDirection='column'>
     <NavigationItem text='ACCOUNT INFO' icon={['far', 'user']} path='/asdf' />
-    <NavigationItem text='ORGANIZATIONS' icon={['far', 'rocket']} path='/' />
+    <NavigationItem text='UPGRADE TO PRO' icon={['far', 'rocket']} path='/' />
     <NavigationItem text='OAUTH APPS' icon={['far', 'shield-check']} path='/' />
-    <NavigationItem text='HELPFUL LINKS' icon={['far', 'gift']} path='/' />
+    <NavigationItem text='REFERRALS' icon={['far', 'gift']} path='/' />
   </Flex>
 );
 
