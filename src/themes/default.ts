@@ -24,9 +24,10 @@ export const defaultTheme = {
     selected: '#003482',
     ui: {
       primary: '#0C203E',
-      sidebar: 'var(--bg-sidebar)',
+      sidebar: '#000F27',
     },
   },
+  fontFamily: 'Arial',
   fonts: {
     normal: fontStack([
       '-apple-system',
