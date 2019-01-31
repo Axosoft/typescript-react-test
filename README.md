@@ -25,6 +25,8 @@ export const TestUserAction = (data1: string, data2: number) => ({
 });
 ```
 
+> ConstantString is simply a function that returns the string you passed in, but typed in such a way that typescript infers its type as that specific string instead of `string`.
+
 You must add the action to the action type definition at the bottom of the appropriate actions file to register its type. You won't be able to dispatch the action or use it in a reducer at all if you forget to do this:  
 ```ts
 // if we're working in UserActions.ts, this is at the bottom
@@ -34,5 +36,9 @@ export type USER_ACTION =
   ReturnType<typeof TestUserAction>;
 ```
 Note that all the items in the list must have a vertical bar at the end, except the last one, which needs a semicolon.
+
+> `ReturnType<typeof actioncreator>` is why we needed ConstantString. With it, the return type of the action creator function is something like `{type: 'SOME_ACTION_STRING'}`, which means in the reducer, when you switch on action.type, you get a list of the actual strings and typescript can tell what the rest of the action object looks like based on which case you're in
+
+> `USER_ACTION` is simply the merged type of all the action creator return types. The less fancy way of doing all this would be to define an interface for every action you have, and union all the interfaces together, but that felt like a lot of typing to us.
 
 If you need to add a whole new store, basically copy the existing stores but don't forget to augment ROOT_ACTION and IRootState, and register the reducer in combineReducers in index.ts.
